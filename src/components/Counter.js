@@ -13,16 +13,12 @@ class Counter extends Component {
         // increments after waiting for one second
     };
 
-    increment = (addCount) => {
-        this.setState({
-            count: addCount
-        })
+    increment = () => {
+			this.props.increment()
     }
 
-    increment = (subCount) => {
-        this.setState({
-            count: subCount
-        })
+    decrement = () => {
+			this.props.decrement()
     }
 
     render() {
@@ -32,10 +28,10 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {}}>
+                <button onClick={this.increment}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={this.decrement}>
                     -
                 </button>
                  {/* Uncomment these button tags if you got
