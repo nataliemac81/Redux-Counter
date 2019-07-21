@@ -13,6 +13,14 @@ class Counter extends Component {
         // increments after waiting for one second
     };
 
+    increment = () => {
+			this.props.increment()
+    }
+
+    decrement = () => {
+			this.props.decrement()
+    }
+
     render() {
         // Fill in the two button onClick methods
         // Upon clicking these buttons, the count
@@ -20,10 +28,10 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={this.increment}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={this.decrement}>
                     -
                 </button>
                  {/* Uncomment these button tags if you got
@@ -56,4 +64,11 @@ const mapStateToProps = (state) => {
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
+
+// *** 1st invocation of connect function ***
+//mapStateToProps = connect function's 1st argument, a function.
+//{ increment, decrement } = connect function's 2nd arg, an object.
+
+// *** 2nd invocation of connect function ***
+//(Counter) = component we want to connect to our store
 export default connect(mapStateToProps, { increment, decrement })(Counter);
